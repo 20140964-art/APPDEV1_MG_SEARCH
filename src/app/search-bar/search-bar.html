@@ -1,0 +1,25 @@
+<div class="mb-3 d-flex">
+  <input
+    type="search"
+    class="form-control"
+    placeholder="Search products..."
+    [(ngModel)]="searchText">
+  <button class="btn btn-primary">Search</button>
+</div>
+<br>
+<h3>Search Results</h3>
+<table class="table">
+  <tbody>
+    <tr *ngFor="let item of filteredWeb">
+      <td>
+        {{ item.name }}<br>
+        <a [href]="item.url">{{ item.url }}</a><br>
+        {{ item.description }}<br><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="filteredWeb.length === 0" class="text-center">
+  No results found.
+</div>
+
